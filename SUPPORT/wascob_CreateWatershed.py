@@ -20,6 +20,10 @@
 # phone: 317.501.1578
 #
 # ==========================================================================================
+#Updated 9/28/2023 - Josh Nurrenbern
+# - Added watershed name field for user editable watershed names
+# - Added RCN field in this tool instead of the RCN tool. This allows the auto labeling of RCN once that tool is run.
+#
 # Updated  6/17/2020 - Adolfo Diaz
 #
 # - Removed code to check for line or polyline geometry of outlets since the geometry
@@ -411,6 +415,12 @@ if __name__ == '__main__':
 
         arcpy.SetProgressorLabel("Adding Avg_Slope Field to Watershed")
         arcpy.AddField_management(watershed, "Avg_Slope", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED")
+
+        # Add Watershed Name Field in watershed.  User can edit to make custom watershed name for labels
+        arcpy.AddField_management(watershed, "Watershed_Name", "String", "", "", "30", "", "NULLABLE", "NON_REQUIRED")
+
+        #Add RCN Field in watershed. Allows for the label to contain RCN and still work.
+        arcpy.AddField_management(watershed, "RCN", "LONG", "", "", "", "", "NULLABLE", "NON_REQUIRED")
 
         # ----------------------------------------------------------------------------------------------- Calculate Average Slope
         # zUnits are feet because we are using the ProjectDEM in this practice workflow path for WASCOBs

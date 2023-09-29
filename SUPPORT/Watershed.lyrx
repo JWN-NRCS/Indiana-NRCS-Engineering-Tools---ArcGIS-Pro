@@ -1,23 +1,23 @@
 {
   "type" : "CIMLayerDocument",
-  "version" : "2.6.0",
-  "build" : 24783,
+  "version" : "2.9.0",
+  "build" : 32739,
   "layers" : [
-    "CIMPATH=Map/e37a2fdcdaf64760810fcc4e07bfac52.xml"
+    "CIMPATH=Map/60134a28d05247989aac047eefbbe14e.xml"
   ],
   "layerDefinitions" : [
     {
       "type" : "CIMFeatureLayer",
-      "name" : "Watershed",
-      "uRI" : "CIMPATH=Map/e37a2fdcdaf64760810fcc4e07bfac52.xml",
+      "name" : "Waterway1",
+      "uRI" : "CIMPATH=Map/60134a28d05247989aac047eefbbe14e.xml",
       "sourceModifiedTime" : {
         "type" : "TimeInstant"
       },
       "useSourceMetadata" : true,
-      "description" : "Watershed",
+      "description" : "Waterway1",
       "layerElevation" : {
         "type" : "CIMLayerElevationSurface",
-        "mapElevationID" : "{1023E81A-5031-4EE6-AA02-FAC59255DC72}"
+        "mapElevationID" : "{441DF9AC-D197-4E2F-A52F-EE7B5043093D}"
       },
       "expanded" : true,
       "layerType" : "Operational",
@@ -29,18 +29,21 @@
       "serviceLayerID" : -1,
       "refreshRate" : -1,
       "refreshRateUnit" : "esriTimeUnitsSeconds",
+      "blendingMode" : "Alpha",
+      "allowDrapingOnIntegratedMesh" : true,
       "autoGenerateFeatureTemplates" : true,
       "featureElevationExpression" : "0",
       "featureTable" : {
         "type" : "CIMFeatureTable",
-        "displayField" : "Shape_Length",
+        "displayField" : "Watershed_Name",
         "editable" : true,
+        "selectionSetURI" : "CIMPATH=SelectionSet/c4210c5f800ba8d0f5e1f60e000ea877.dat",
         "dataConnection" : {
           "type" : "CIMFeatureDatasetDataConnection",
           "featureDataset" : "Layers",
-          "workspaceConnectionString" : "DATABASE=..\\..\\..\\Workspace\\Eng_Pro_Tests\\Eng_Pro_Tests_EngTools.gdb",
+          "workspaceConnectionString" : "DATABASE=..\\..\\EngToolsWorking\\WatershedTest\\WatershedTest_EngTools.gdb",
           "workspaceFactory" : "FileGDB",
-          "dataset" : "Watershed",
+          "dataset" : "Waterway1",
           "datasetType" : "esriDTFeatureClass"
         },
         "studyAreaSpatialRel" : "esriSpatialRelUndefined",
@@ -49,20 +52,26 @@
       "featureTemplates" : [
         {
           "type" : "CIMFeatureTemplate",
-          "name" : "Watershed",
+          "name" : "Waterway1",
           "tags" : "Polygon",
-          "toolProgID" : "00000000-0000-0000-0000-000000000000"
+          "toolProgID" : "8f79967b-66a0-4a1c-b884-f44bc7e26921",
+          "toolFilter" : [
+            "6c6970a7-5ca9-448c-9c7d-0d716cd2ac64",
+            "a281e635-0f22-47d4-a438-e4d29b920e22",
+            "d304243a-5c3a-4ccc-b98b-93684b15fd83"
+          ]
         }
       ],
       "htmlPopupEnabled" : true,
       "selectable" : true,
       "featureCacheType" : "Session",
       "displayFiltersType" : "ByScale",
+      "featureBlendingMode" : "Alpha",
       "labelClasses" : [
         {
           "type" : "CIMLabelClass",
-          "expression" : "\"Subbasin \" + $feature.Subbasin + textFormatting.NewLine + text($feature.Acres, '#.00') + \" ac\" + textFormatting.NewLine + \"Avg Slope: \" + Round($feature.Avg_Slope, 1) + \"%\"",
-          "expressionEngine" : "Arcade",
+          "expression" : "Function FindLabel ( [Watershed_Name], [Subbasin], [Acres], [Avg_Slope], [RCN] )\r\n  If  [RCN] <> \"\" Then\r\n    rcn = vbNewLine & \"RCN:  \" & [RCN]\r\n  Else\r\n    rcn = \"\"\r\n  End If\r\n\r\n  If  [Watershed_Name] <> \"\" Then\r\n    FindLabel = [Watershed_Name] & vbNewLine  &Round([Acres],2) & \" ac\" & vbNewLine & \"Avg Slope: \" & Round([Avg_Slope],2) & \"%\" &  rcn\r\n  Else\r\n    FindLabel = \"Subbasin \" & [Subbasin] & vbNewLine  & Round([Acres],2) & \" ac\" & vbNewLine & \"Avg Slope: \" & Round([Avg_Slope],2) & \"%\" & rcn\r\n  End If\r\nEnd Function",
+          "expressionEngine" : "VBScript",
           "featuresToLabel" : "AllVisibleFeatures",
           "maplexLabelPlacementProperties" : {
             "type" : "CIMMaplexLabelPlacementProperties",
@@ -106,7 +115,8 @@
                   "visible" : true,
                   "splitAfter" : true
                 }
-              ]
+              ],
+              "trimStackingSeparators" : true
             },
             "lineFeatureType" : "General",
             "linePlacementMethod" : "OffsetCurvedFromLine",
@@ -174,7 +184,8 @@
             "truncationMarkerCharacter" : ".",
             "truncationMinimumLength" : 1,
             "truncationPreferredCharacters" : "aeiou",
-            "truncationExcludedCharacters" : "0123456789"
+            "truncationExcludedCharacters" : "0123456789",
+            "polygonAnchorPointPerimeterInsetUnit" : "Point"
           },
           "name" : "Watershed Labels",
           "priority" : -1,
@@ -378,6 +389,34 @@
       },
       "scaleSymbols" : true,
       "snappable" : true
+    }
+  ],
+  "binaryReferences" : [
+    {
+      "type" : "CIMBinaryReference",
+      "uRI" : "CIMPATH=SelectionSet/c4210c5f800ba8d0f5e1f60e000ea877.dat",
+      "data" : "CgMxLjAQARoDCgEx"
+    }
+  ],
+  "elevationSurfaces" : [
+    {
+      "type" : "CIMMapElevationSurface",
+      "elevationMode" : "BaseGlobeSurface",
+      "name" : "Ground",
+      "verticalExaggeration" : 1,
+      "mapElevationID" : "{441DF9AC-D197-4E2F-A52F-EE7B5043093D}",
+      "color" : {
+        "type" : "CIMRGBColor",
+        "values" : [
+          255,
+          255,
+          255,
+          100
+        ]
+      },
+      "surfaceTINShadingMode" : "Smooth",
+      "visibility" : true,
+      "expanded" : true
     }
   ],
   "rGBColorProfile" : "sRGB IEC61966-2-1 noBPC",

@@ -24,7 +24,11 @@
 # Updated by Chris Morse, USDA NRCS, 2019
 #
 # ==========================================================================================
-# Updated  4/22/2020 - Adolfo Diaz
+#Updated 9/28/2023 - Josh Nurrenbern
+# - Added watershed name field for user editable watershed names
+# - Added RCN field in this tool instead of the RCN tool. This allows the auto labeling of RCN once that tool is run.
+#
+#Updated  4/22/2020 - Adolfo Diaz
 #
 # - Updated and Tested for ArcGIS Pro 2.4.2 and python 3.6
 # - All temporary raster layers such as Fill and Minus are stored in Memory and no longer
@@ -373,6 +377,12 @@ if __name__ == '__main__':
         # Add Acres Field in watershed and calculate them and notify the user
         arcpy.AddField_management(watershed, "Acres", "DOUBLE", "", "", "", "", "NULLABLE", "NON_REQUIRED")
         arcpy.CalculateField_management(watershed, "Acres", "!shape.area@acres!", "PYTHON3")
+
+        # Add Watershed Name Field in watershed.  User can edit to make custom watershed name for labels
+        arcpy.AddField_management(watershed, "Watershed_Name", "String", "", "", "30", "", "NULLABLE", "NON_REQUIRED")
+
+        #Add RCN Field in watershed. Allows for the label to contain RCN and still work.
+        arcpy.AddField_management(watershed, "RCN", "LONG", "", "", "", "", "NULLABLE", "NON_REQUIRED")
 
         # ---------------------------------------------------------------------------- If user opts to calculate watershed flow paths
         if bCalcLHL:
