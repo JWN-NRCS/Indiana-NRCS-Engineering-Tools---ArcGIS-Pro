@@ -43,6 +43,7 @@ def AddMsgAndPrint(msg, severity=0):
         arcpy.AddWarning(msg)
     elif severity == 2:
         arcpy.AddError(msg)
+        exit()
 ## ================================================================================================================
 def logBasicSettings():
     # record basic user inputs and settings to log file for future purposes
@@ -183,7 +184,20 @@ if __name__ == '__main__':
         watershedGDB_name = os.path.basename(watershedGDB_path)
         userWorkspace = os.path.dirname(watershedGDB_path)
         wsName = os.path.basename(inWatershed)
-        inLength = watershedFD_path + os.sep + wsName + "_FlowPaths" #Flow Length table        
+        inLength = watershedFD_path + os.sep + wsName + "_FlowPaths" #Flow Length table
+        # ------------------------------------------------------------------------Check active APRX and layout exists
+        # Check for active APRX
+        try:
+            aprx = arcpy.mp.ArcGISProject("CURRENT")
+        except:
+            arcpy.AddError("This tool must be run from an active ArcGIS Pro project. Exiting...")
+            exit()
+        #Check for expected contents of APRX, namely the layout
+        try:
+            efhLayout = aprx.listLayouts("EFHLayout")[0]
+        except:
+            arcpy.AddError("\nThe EFH Layout is missing from the project. Please use the installed template or a template developed from the installed template. Exiting...")
+            exit()  
         
         # ---------------------------------------------------------------Add fields to inWatershed
         arcpy.SetProgressorLabel('Adding Fields to Watershed')
@@ -252,18 +266,7 @@ if __name__ == '__main__':
         
         #-------------------------------------------------------------------Setup Layout
         arcpy.SetProgressorLabel('Setting up layout')
-        # Check for active APRX
-        try:
-            aprx = arcpy.mp.ArcGISProject("CURRENT")
-        except:
-            arcpy.AddError("This tool must be run from an active ArcGIS Pro project. Exiting...")
-            exit()
-        #Check for expected contents of APRX, namely the layout
-        try:
-            efhLayout = aprx.listLayouts("EFHLayout")[0]
-        except:
-            arcpy.AddError("\nThe EFH Layout is missing from the project. Please use the installed template or a template developed from the installed template. Exiting...")
-            exit()  
+
         elementNames = ["Frequency", "Rainfall", "Ratio", "Runoff", "RunoffAC", "UPD", "CFS"]
 
         updateLayout(efhLayout, "Client", "", inClient) #Client Update
@@ -280,7 +283,12 @@ if __name__ == '__main__':
                     watershedName = "Subbasin " + str(row[0])
                 else:
                     watershedName = row[1]
-                    
+
+                strCheck = watershedName.replace(" ", "").isalnum()
+                if strCheck == 0:
+                    AddMsgAndPrint('Your watershed name contains special characters, please rename your watershed with only letters, numbers, and spaces. Exiting...', 2)
+                watershedName = watershedName.replace(" ", "_")
+
                 arcpy.SetProgressorLabel('Creating table for ' + watershedName)
                 tc = row[2]
                 acres = row[3]
