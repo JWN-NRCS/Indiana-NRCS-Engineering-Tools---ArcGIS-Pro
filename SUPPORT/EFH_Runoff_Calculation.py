@@ -280,16 +280,16 @@ if __name__ == '__main__':
         with arcpy.da.SearchCursor(inWatershed, ['Subbasin', 'Watershed_Name', 'Time_Concentration', 'Acres', 'RCN', 'Avg_Slope', 'Length_ft'] ) as cursor:
             for row in cursor:
                 if row[1] is None:
-                    watershedName = "Subbasin " + str(row[0])
+                    watershedNameOut = "Subbasin " + str(row[0])
                 else:
-                    watershedName = row[1]
+                    watershedNameOut = row[1]
 
-                strCheck = watershedName.replace(" ", "").isalnum()
+                strCheck = watershedNameOut.replace(" ", "").isalnum()
                 if strCheck == 0:
                     AddMsgAndPrint('Your watershed name contains special characters, please rename your watershed with only letters, numbers, and spaces. Exiting...', 2)
-                watershedName = watershedName.replace(" ", "_")
+                watershedName = watershedNameOut.replace(" ", "_")
 
-                arcpy.SetProgressorLabel('Creating table for ' + watershedName)
+                arcpy.SetProgressorLabel('Creating table for ' + watershedNameOut)
                 tc = row[2]
                 acres = row[3]
                 CN = row[4]
@@ -299,7 +299,7 @@ if __name__ == '__main__':
                 acresT = str(round(acres, 2))
                 CNT = str(round(CN, 2))
                 slopeT = str(round(slope, 2))
-                lengthT = str(round(length, 2))
+                lengthT = str(int(length))
 
                 #------------------------------------------------------Create table for watershed and add fields to it    
                 arcpy.management.CreateTable(watershedGDB_path, wsName + '_' + watershedName)
@@ -312,8 +312,8 @@ if __name__ == '__main__':
                 arcpy.AddField_management(workingTable, tableFields[4], "String", "", "", "4", "", "NULLABLE", "NON_REQUIRED")
 
                 freqList = ['1', '2', '5', '10', '25', '50', '100']
-                AddMsgAndPrint('Watershed Name: ' + watershedName)
-                updateLayout(efhLayout, "WatershedName", "", watershedName) #Watershed Name Update
+                AddMsgAndPrint('Watershed Name: ' + watershedNameOut)
+                updateLayout(efhLayout, "WatershedName", "", watershedNameOut) #Watershed Name Update
                 AddMsgAndPrint('____Drainage Area:         ' + acresT)
                 updateLayout(efhLayout, "DrainageArea", "", acresT) #Drainage Area Update
                 AddMsgAndPrint('____Runoff Curve Number:   ' + CNT)
@@ -327,7 +327,7 @@ if __name__ == '__main__':
                 AddMsgAndPrint('____Rainfall Type: ', rainfallType)
                 updateLayout(efhLayout, "RainfallType", "", rainfallType) #Rainfall Type Update
                 AddMsgAndPrint('Storm Frequency, 24hr rainfall, CFS, Runoff, Ia/P Ratio')
-                
+                arcpy.SetProgressorLabel('Updating layout for ' + watershedNameOut)
                 for x in range(7):
                     freq = freqList[x]
                     rain = rainfall[x]
@@ -345,11 +345,11 @@ if __name__ == '__main__':
                     updateLayout(efhLayout, elementNames[3], x+1, runoff) #Runoff Update
                     runoffAC = round(runoff * acres / 12, 2)
                     updateLayout(efhLayout, elementNames[4], x+1, runoffAC) #Runoff Ac Update
-                    updateLayout(efhLayout, elementNames[5], x+1, unitPeak) #Unit Peak Discharge Update
+                    updateLayout(efhLayout, elementNames[5], x+1, int(unitPeak)) #Unit Peak Discharge Update
                     updateLayout(efhLayout, elementNames[6], x+1, peakDischarge) #Peak Discharge Update
                     
-                arcpy.SetProgressorLabel('Saving Layout to PDF')
-                EFH_PDF = os.path.join(userWorkspace, watershedName + "_EFH.pdf")
+                arcpy.SetProgressorLabel('Saving ' + watershedNameOut + ' to PDF')
+                EFH_PDF = os.path.join(userWorkspace, watershedName + "_Runoff.pdf")
                 efhLayout.exportToPDF(EFH_PDF, resolution = 300, image_quality = "NORMAL", layers_attributes = "LAYERS_AND_ATTRIBUTES")
                 os.startfile(EFH_PDF)
                 
