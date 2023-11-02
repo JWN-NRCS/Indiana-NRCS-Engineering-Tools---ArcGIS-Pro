@@ -1,5 +1,10 @@
 # Indiana-NRCS-Engineering-Tools---ArcGIS-Pro
 
+These tools have been modified to inlucde a few new tools that could be used as an alternative to EFH2. 
+Under Watershed Tools, there is a Runoff Calculation tool. This will produce a PDF that looks similar to the EFH2 report. 
+Testing has been performed for Indiana, and this should work for other states, but please to testing to confirm.
+
+
 ## Current status of the ArcGIS Pro migration from ArcGIS 10.x
 
 Toolset|Tool|ArcGIS Pro Compatible|
