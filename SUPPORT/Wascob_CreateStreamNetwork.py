@@ -287,18 +287,18 @@ if __name__ == '__main__':
                        [100,30.48,1.0,2.54],
                        [39.3701,12,0.393701,1.0]]
 
-        # Resample DEM if cell size is too fine
-        if linearUnits in ('Feet','Foot_US','Foot') and demCellSize < 10:
-            AddMsgAndPrint("\nResampling DEM resolution from " + str(demCellSize) + " to 10 Feet",1)
-            demCellSize = 10
-            arcpy.Resample_management(DEM_aoi, aggregatedDEM, demCellSize, "BILINEAR")
-            DEM_aoi = aggregatedDEM
-
-        if linearUnits in ('Meter','Meters') and demCellSize < 3:
-            AddMsgAndPrint("\nResampling DEM resolution from " + str(demCellSize) + " to 3 Meters",1)
-            demCellSize = 3
-            arcpy.Resample_management(DEM_aoi, aggregatedDEM, demCellSize, "BILINEAR")
-            DEM_aoi = aggregatedDEM
+##        # Resample DEM if cell size is too fine
+##        if linearUnits in ('Feet','Foot_US','Foot') and demCellSize < 10:
+##            AddMsgAndPrint("\nResampling DEM resolution from " + str(demCellSize) + " to 10 Feet",1)
+##            demCellSize = 10
+##            arcpy.Resample_management(DEM_aoi, aggregatedDEM, demCellSize, "BILINEAR")
+##            DEM_aoi = aggregatedDEM
+##
+##        if linearUnits in ('Meter','Meters') and demCellSize < 3:
+##            AddMsgAndPrint("\nResampling DEM resolution from " + str(demCellSize) + " to 3 Meters",1)
+##            demCellSize = 3
+##            arcpy.Resample_management(DEM_aoi, aggregatedDEM, demCellSize, "BILINEAR")
+##            DEM_aoi = aggregatedDEM
 
         # ------------------------------------------------------------------------------------------------------------------------ Incorporate Culverts into DEM
         reuseCulverts = False

@@ -339,7 +339,7 @@ if __name__ == '__main__':
         # Otherwise FGDB does not exist, create it.
         else:
             arcpy.CreateFileGDB_management(userWorkspace, watershedGDB_name)
-            arcpy.CreateFeatureDataset_management(watershedGDB_path, "Layers", sr)
+            arcpy.CreateFeatureDataset_management(watershedGDB_path, "Layers", arcpy.env.outputCoordinateSystem)
             AddMsgAndPrint("\nSuccessfully created File Geodatabase: " + watershedGDB_name,0)
 
         # If Documents folder not present, create and copy required files to it
