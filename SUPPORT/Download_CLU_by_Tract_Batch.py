@@ -168,23 +168,20 @@ try:
     for tractNumber in tractList:
         cluTempPath.append(extract_CLU_by_Tract.start(adminState, adminCounty, tractNumber, outSpatialRef, basedataGDB_path))
         x = x + 1
-        #arcpy.Delete_management(cluTempPath)
 
     cluExists = []
     for fc in cluTempPath:
         if arcpy.Exists(fc):
             cluExists.append(fc)
 
-#    if len(cluTempPath) == 1:
-#        arcpy.management.CopyFeatures(cluTempPath[0], projectCLU)
-#    else:
     arcpy.AddMessage("\nMerging CLUs to one dataset...")
-    arcpy.management.Merge(cluExists, projectCLU)
+    try:
+        arcpy.management.Merge(cluExists, projectCLU)
+    except:
+        arcpy.AddMessage("\nNo tracts to merge... Exiting.")
     arcpy.AddMessage("\nDeleting temporary CLUs from SCRATCH.gdb...")
-    for cluDelete in cluExists:
-        arcpy.management.Delete(cluDelete)
-    
-    
+    for fc in cluExists:
+        arcpy.management.Delete(fc)
 
     #### Add results to map
     arcpy.SetParameterAsText(6, projectCLU)
