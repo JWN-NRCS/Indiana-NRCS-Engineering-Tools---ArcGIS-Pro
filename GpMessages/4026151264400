@@ -1,7 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?><messages><msg code="0" type="2">Start Time: Monday, April 22, 2024 9:18:54 AM</msg><msg code="0" type="0">Burn culverts is: </msg><msg code="0" type="0">
-No Culverts detected!</msg><msg code="0" type="0">
-Successfully filled sinks in Fill_hydroDEM to remove small imperfections</msg><msg code="0" type="0">
-Successfully created Flow Accumulation and Flow Direction</msg><msg code="0" type="0">
-Successfully created stream linear network using a flow accumulation value &gt;= 1742</msg><msg code="0" type="0">
-Successfully Compacted FGDB: TrainingSE_Engineering_EngTools.gdb</msg><msg code="0" type="0">
-Adding Layers to ArcGIS Pro Session</msg><msg code="0" type="3">Succeeded at Monday, April 22, 2024 9:19:52 AM (Elapsed Time: 58.80 seconds)</msg></messages>
