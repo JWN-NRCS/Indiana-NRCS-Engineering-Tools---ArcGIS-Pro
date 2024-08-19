@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?><messages><msg code="0" type="2">Start Time: Wednesday, June 12, 2024 12:25:06 PM</msg><msg code="0" type="0">
+Checking Values in landuse layer...</msg><msg code="0" type="0">
+Checking Values in soils layer...</msg><msg code="0" type="0">
+Successfully intersected Hydrologic Groups, Landuse, and Subbasin Boundaries</msg><msg code="0" type="0">
+Checking Landuse and Condition Values in intersected data</msg><msg code="0" type="0">
+	All populated correctly!</msg><msg code="0" type="0">
+Succesfully Joined to TR_55_RCN Lookup table to assign Land Use Codes</msg><msg code="0" type="0">
+Succesfully Joined to HYD_GRP_Lookup table to assign Hydro Codes</msg><msg code="0" type="0">
+Succesfully Joined to TR_55_RCN Lookup table to assign Curve Numbers for Unique Combinations</msg><msg code="0" type="0">
+Successfully Calculated Weighted Runoff Curve Number for each SubBasin</msg><msg code="0" type="0">
+	Subbasin ID: 1</msg><msg code="0" type="0">		Weighted Average RCN Value: 71.0</msg><msg code="0" type="0">
+	Subbasin ID: 2</msg><msg code="0" type="0">		Weighted Average RCN Value: 72.0</msg><msg code="0" type="0">
+Adding unique identifier to each subbasin's soil and landuse combinations</msg><msg code="0" type="0">
+Successfully created RCN Layer: WatershedDemo_RCN</msg><msg code="0" type="0">
+Successfully Compacted FGDB: EngineeringToolDemo_EngTools.gdb</msg><msg code="0" type="0">
+Adding Layers to ArcGIS Pro</msg><msg code="0" type="3">Succeeded at Wednesday, June 12, 2024 12:25:26 PM (Elapsed Time: 19.89 seconds)</msg></messages>

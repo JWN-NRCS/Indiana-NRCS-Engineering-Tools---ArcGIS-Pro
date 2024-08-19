@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8"?><messages><msg code="0" type="2">Start Time: Monday, April 22, 2024 9:41:45 AM</msg><msg code="0" type="0">
+Checking Values in landuse layer...</msg><msg code="0" type="0">
+Checking Values in soils layer...</msg><msg code="0" type="0">
+Successfully intersected Hydrologic Groups, Landuse, and Subbasin Boundaries</msg><msg code="0" type="0">
+Checking Landuse and Condition Values in intersected data</msg><msg code="0" type="0">
+	All populated correctly!</msg><msg code="0" type="0">
+Succesfully Joined to TR_55_RCN Lookup table to assign Land Use Codes</msg><msg code="0" type="0">
+Succesfully Joined to HYD_GRP_Lookup table to assign Hydro Codes</msg><msg code="0" type="0">
+Succesfully Joined to TR_55_RCN Lookup table to assign Curve Numbers for Unique Combinations</msg><msg code="0" type="0">
+Successfully Calculated Weighted Runoff Curve Number for each SubBasin</msg><msg code="0" type="0">
+	Subbasin ID: 1</msg><msg code="0" type="0">		Weighted Average RCN Value: 75.0</msg><msg code="0" type="0">
+	Subbasin ID: 2</msg><msg code="0" type="0">		Weighted Average RCN Value: 76.0</msg><msg code="0" type="0">
+	Subbasin ID: 3</msg><msg code="0" type="0">		Weighted Average RCN Value: 78.0</msg><msg code="0" type="0">
+	Subbasin ID: 4</msg><msg code="0" type="0">		Weighted Average RCN Value: 79.0</msg><msg code="0" type="0">
+Adding unique identifier to each subbasin's soil and landuse combinations</msg><msg code="0" type="0">
+Successfully created RCN Layer: Watershed_RCN</msg><msg code="0" type="0">
+Successfully Compacted FGDB: TrainingSE_Engineering_EngTools.gdb</msg><msg code="0" type="0">
+Adding Layers to ArcGIS Pro</msg><msg code="0" type="3">Succeeded at Monday, April 22, 2024 9:41:57 AM (Elapsed Time: 12.23 seconds)</msg></messages>

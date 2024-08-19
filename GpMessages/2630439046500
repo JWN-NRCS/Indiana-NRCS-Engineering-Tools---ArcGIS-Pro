@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?><messages><msg code="0" type="2">Start Time: Monday, April 22, 2024 8:55:38 AM</msg><msg code="0" type="0">Reading inputs...
+</msg><msg code="0" type="0">
+Removing CLU layer from project maps, if present...
+</msg><msg code="0" type="0">
+Downloading latest CLU data for input tract number...</msg><msg code="0" type="0">
+Creating New Feature Class: CLU_18_051_37372</msg><msg code="0" type="0">Querying USDA-NRCS GeoPortal for CLU fields where: ADMIN_STATE = 18 AND ADMIN_COUNTY = 051 AND TRACT_NUMBER = 37372</msg><msg code="0" type="0">
+There is 1 CLU field associated with tract number 37372</msg><msg code="0" type="50"></msg><msg code="0" type="50">
+Projecting CLU Feature class</msg><msg code="0" type="50">FROM: WGS_1984_Web_Mercator_Auxiliary_Sphere</msg><msg code="0" type="50">TO: NAD_1983_UTM_Zone_16N</msg><msg code="0" type="50">Geographic Transformation used: WGS_1984_(ITRF00)_To_NAD_1983</msg><msg code="0" type="3">Succeeded at Monday, April 22, 2024 8:56:02 AM (Elapsed Time: 23.71 seconds)</msg></messages>

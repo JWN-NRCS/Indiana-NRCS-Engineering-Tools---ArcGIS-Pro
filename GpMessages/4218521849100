@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?><messages><msg code="0" type="2">Start Time: Monday, April 22, 2024 9:22:06 AM</msg><msg code="0" type="0">
+Successfully Created Watershed_outlet feature class from existing layer</msg><msg code="0" type="0">
+Delineating Watershed(s)...</msg><msg code="0" type="0">
+	Successfully Created 4 Watershed(s) from Watershed_outlet</msg><msg code="0" type="0">
+Calculating watershed flow path(s)</msg><msg code="0" type="0">
+	Successfully extracted watershed flow path(s)</msg><msg code="0" type="0">
+Calculating average slope...</msg><msg code="0" type="0">
+	Successfully Calculated Average Slope</msg><msg code="0" type="0">
+Create Watershed Results:</msg><msg code="0" type="0">
+===================================================</msg><msg code="0" type="0">	User Watershed: Watershed</msg><msg code="0" type="0">
+	Subbasin: 1</msg><msg code="0" type="0">		Acres: 5.71</msg><msg code="0" type="0">		Area: 248,876.23 Sq. Feet</msg><msg code="0" type="0">		Avg. Slope: 8.65</msg><msg code="0" type="0">
+	Subbasin: 2</msg><msg code="0" type="0">		Acres: 25.54</msg><msg code="0" type="0">		Area: 1,112,612.78 Sq. Feet</msg><msg code="0" type="0">		Avg. Slope: 8.41</msg><msg code="0" type="0">
+	Subbasin: 3</msg><msg code="0" type="0">		Acres: 13.86</msg><msg code="0" type="0">		Area: 603,900.23 Sq. Feet</msg><msg code="0" type="0">		Avg. Slope: 8.9</msg><msg code="0" type="0">
+	Subbasin: 4</msg><msg code="0" type="0">		Acres: 20.54</msg><msg code="0" type="0">		Area: 894,874.84 Sq. Feet</msg><msg code="0" type="0">		Avg. Slope: 9.72</msg><msg code="0" type="0">
+===================================================</msg><msg code="0" type="0">
+Successfully Compacted FGDB: TrainingSE_Engineering_EngTools.gdb</msg><msg code="0" type="0">
+Adding Layers to ArcGIS Pro Session</msg><msg code="0" type="0"></msg><msg code="0" type="3">Succeeded at Monday, April 22, 2024 9:23:47 AM (Elapsed Time: 1 minutes 41 seconds)</msg></messages>

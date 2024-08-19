@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?><messages><msg code="0" type="2">Start Time: Monday, April 22, 2024 9:31:19 AM</msg><msg code="0" type="0">
+Using existing Watershed feature class</msg><msg code="0" type="50">
+No CLU Layer Detected</msg><msg code="0" type="50">
+Successfully created Watershed Landuse layer: Watershed_Landuse</msg><msg code="0" type="0">
+Successufully added "LANDUSE" and "CONDITION" fields to Landuse Layer and associated Domains</msg><msg code="0" type="0">
+Successfully clipped soils layer to Landuse layer and removed unnecessary fields</msg><msg code="0" type="0">
+Checking Hydrologic Group Attributes in Soil Layer.....</msg><msg code="0" type="50">		The following Hydrologic Values need to be converted: ['B/D'] to a single class i.e. "B/D" to "B"</msg><msg code="0" type="0">
+	Added "HYDGROUP" to soils layer.  Please Populate the Hydrologic Group Values manually for this field</msg><msg code="0" type="0">
+Successfully Compacted FGDB: TrainingSE_Engineering_EngTools.gdb</msg><msg code="0" type="0">
+Adding Layers to ArcGIS Pro</msg><msg code="0" type="0">
+	=========================================================================</msg><msg code="0" type="50">	BEFORE CALCULATING THE RUNOFF CURVE NUMBER FOR YOUR WATERSHED MAKE SURE TO</msg><msg code="0" type="50">	ATTRIBUTE THE "LANDUSE" AND "CONDITION" FIELDS IN Watershed_Landuse LAYER</msg><msg code="0" type="50">	AND CONVERT THE 1 COMBINED HYDROLOGIC GROUPS IN Watershed_Soils LAYER</msg><msg code="0" type="0">	=========================================================================
+</msg><msg code="0" type="3">Succeeded at Monday, April 22, 2024 9:31:35 AM (Elapsed Time: 16.26 seconds)</msg></messages>
